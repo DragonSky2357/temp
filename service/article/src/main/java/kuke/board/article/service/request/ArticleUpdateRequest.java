@@ -5,7 +5,7 @@ import lombok.ToString;
 
 @Getter
 @ToString
-public class ArticleUpdateReqeust {
+public class ArticleUpdateRequest {
     private String title;
     private String content;
 }
