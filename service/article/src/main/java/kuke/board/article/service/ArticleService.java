@@ -9,7 +9,7 @@ import kuke.board.article.service.request.ArticleUpdateRequest;
 import kuke.board.article.service.response.ArticlePageResponse;
 import kuke.board.article.service.response.ArticleResponse;
 import kuke.board.article.service.response.PageLimitCalculator;
-import kuke.board.common.snowflake.Snowflake;
+import kuke.board.common.Snowflake;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
