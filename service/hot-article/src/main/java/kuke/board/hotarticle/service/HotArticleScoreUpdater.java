@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.time.Duration;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Component
@@ -29,10 +30,19 @@ public class HotArticleScoreUpdater {
             return;
         }
 
+        eventHandler.handle(event);
+
         long score = hotArticleScoreCalculator.calculate(articleId);
+        hotArticleListRepository.add(
+                articleId,
+                createdTime,
+                score,
+                HOT_ARTICLE_COUNT,
+                HOT_ARTICLE_TTL
+        );
     }
 
     private boolean isArticleCreatedToday(LocalDateTime createdTime){
-        return createdTime != null && createdTime.toLocalDate().equals(LocalDateTime.now());
+        return createdTime != null && createdTime.toLocalDate().equals(LocalDate.now());
     }
 }
